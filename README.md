@@ -1,0 +1,1 @@
+# Quantitative Evaluation of Semantic Event Abstraction for Process Mining
