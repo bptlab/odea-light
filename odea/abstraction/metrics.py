@@ -97,7 +97,7 @@ def expr(concept: Concept):
 
 
 def complexity_reduction(selected_hl_concepts: list, ll_concepts: list):
-    return round(1 - len(selected_hl_concepts) / len(ll_concepts), 3)
+    return round(len(selected_hl_concepts) / (len(ll_concepts) + 1), 3)
 
 
 def complexity_reduction_total(selected_hl_concepts: list, not_abstractable: list, ll_concepts: list):
