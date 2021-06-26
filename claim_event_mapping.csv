@@ -1,0 +1,43 @@
+Event,Concept
+check billing information,Account_Verification
+request further information about the incident,Additional_Details_Request
+assign to department,Allocation_Task
+archive claim,Archive
+initialize  transaction,Book_Expense
+classify claim,Classification_Task
+check completness of submitted  documents,Completeness_Check
+copy claim,Copy
+request customer related data,Customer_Information_Request
+collect billing information,Customer_Information_Request
+decide on claim coverage,Decision_Task
+create electronic file,Electronic_Case_File_Creation
+request external review,External_Review
+check completeness of filled out forms,Factual_Assessment
+finalize assessment,Final_Assessment
+clear transaction,Grant_Transaction
+receive incident related information,Information_Acquisition_Task
+receive customer related data,Information_Acquisition_Task
+receive internal  review,Information_Acquisition_Task
+receive external review,Information_Acquisition_Task
+receive information about third parties,Information_Acquisition_Task
+receive information about other insurances,Information_Acquisition_Task
+resend request,Information_Request
+screen claim,Initial_Assessment
+perform initial assessment,Initial_Assessment
+request information about other insurances,Insurance_Details_Request
+request internal review,Internal_Review
+print claim,Print
+email received,Receive_Email
+letter received,Receive_Letter
+websubmission received,Receive_Websubmission
+reject claim,Reject_Claim
+prepare letter of acceptance,Report_Creation
+prepare rejection letter,Report_Creation
+Scan claim,Scan
+scan claim document,Scan
+send letter,Send_Letter
+request information about third parties,Third_Party_Information_Request
+assign to accounting,Validate_Customer_Details
+claim received,
+claim  reimbursed,
+claim  rejected,
