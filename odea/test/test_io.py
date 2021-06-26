@@ -6,8 +6,8 @@ from odea.io.event_log_helper import (
     import_mapping
 )
 
-log = xes_importer.apply('test_event_log.xes')
-mapping_data = 'test_mapping.csv'
+log = xes_importer.apply('/data/test_event_log.xes')
+mapping_data = '/data/test_mapping.csv'
 
 
 def test_import_mapping():
