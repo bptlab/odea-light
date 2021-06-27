@@ -53,7 +53,7 @@ def get_leaf_paths(connector: SparQLConnector, top=Concept('Task')) -> List[list
 
 def select_mapping(mappings: List[Mapping],
                    connector: SparQLConnector, leaf_paths: list,
-                   top=Concept('Task'), gran=1, agg=m.avg) -> Mapping:
+                   top=Concept('Task'), gran=0, agg=m.avg) -> Mapping:
     """Select mapping from abstraction candidates with the lowest granularity of
     the target/high-level concept.
 
@@ -70,8 +70,8 @@ def select_mapping(mappings: List[Mapping],
         select_mapping [Mapping]: selected abstraction mapping for source
     """
     def select(source: Concept, mappings: List[Mapping],
-               connector: SparQLConnector, leaf_paths: list,
-               top=Concept('Task'), gran=1, agg=m.avg) -> Mapping:
+               connector: SparQLConnector, leaf_paths: list, gran: int,
+               top=Concept('Task'), agg=m.avg) -> Mapping:
 
         selected_mapping: Mapping = None
 
@@ -85,7 +85,7 @@ def select_mapping(mappings: List[Mapping],
             candidate.target.granularity = m.granularity(
                 paths, leaf_paths, agg)
 
-            if candidate.target.granularity <= gran:
+            if candidate.target.granularity >= gran:
                 gran = candidate.target.granularity
                 selected_mapping = candidate
 
@@ -100,7 +100,7 @@ def select_mapping(mappings: List[Mapping],
             seen.append(mapping.source.label)
 
     for concept in source_concepts:
-        selected_abs = select(concept, mappings, connector, leaf_paths)
+        selected_abs = select(concept, mappings, connector, leaf_paths, gran)
         selected_mappings.append(selected_abs)
 
     return selected_mappings

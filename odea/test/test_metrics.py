@@ -71,11 +71,11 @@ def test_granularity():
     ]
 
     assert metrics.granularity(
-        concept_top, leaves_top, metrics.get_min) == round(2/7, 3)
+        concept_top, leaves_top, metrics.get_min) == round(5/7, 3)
     assert metrics.granularity(
-        concept_top, leaves_top, metrics.get_max) == round(3/11, 3)
+        concept_top, leaves_top, metrics.get_max) == round(8/11, 3)
     assert metrics.granularity(
-        concept_top, leaves_top, metrics.avg) == round(3/13, 3)
+        concept_top, leaves_top, metrics.avg) == round(10/13, 3)
 
 
 def test_support():

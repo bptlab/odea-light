@@ -51,11 +51,24 @@ def rdist(source: Concept, target: Concept, paths: list, agg) -> float:
 
 
 def granularity(paths_from_concept: list, paths_from_leaves: list, agg):
+    """
+
+    A number close to 1 indicates a fine granularity, while a number close to 0
+    referres to a coarse granularity of the concept.
+
+    Args:
+        paths_from_concept (list): [description]
+        paths_from_leaves (list): [description]
+        agg ([type]): [description]
+
+    Returns:
+        [type]: [description]
+    """
 
     Gamma = list(map(lambda path: len(path) - 1, paths_from_concept))
     Gamma_p = list(map(lambda path: len(path) - 1, paths_from_leaves))
 
-    gran = 1 - (agg(Gamma) / (agg(Gamma_p) + 1))
+    gran = (agg(Gamma) / (agg(Gamma_p) + 1))
 
     return round(gran, 3)
 
