@@ -1,5 +1,5 @@
-# Mount Sinai data
-data/ms/
+*.pdf
+
 src/test-output/
 
 .vscode/
@@ -8,6 +8,7 @@ src/test-output/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
+*pyc
 *.py[cod]
 *$py.class
 
