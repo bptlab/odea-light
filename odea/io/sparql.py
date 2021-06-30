@@ -53,7 +53,7 @@ class SparQLConnector():
 
         return concepts
 
-    def get_parents(self, c: Concept):
+    def get_parents(self, c: Concept) -> List[str]:
         query = """
         prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
         prefix ic: <{:s}>
@@ -72,7 +72,7 @@ class SparQLConnector():
 
         return concepts
 
-    def get_children(self, c: Concept):
+    def get_children(self, c: Concept) -> List[str]:
         query = """
         prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
         prefix ic: <{:s}>
@@ -91,7 +91,7 @@ class SparQLConnector():
 
         return concepts
 
-    def get_leaves(self):
+    def get_leaves(self) -> List[str]:
         query = """
         prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
         prefix ic: <{:s}>

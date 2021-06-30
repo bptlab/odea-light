@@ -49,3 +49,7 @@ def test_get_children():
     c2 = Concept('Copy')
     assert con.get_children(c1).sort() == supertypes1.sort()
     assert con.get_children(c2) == []
+
+
+def test_get_leaves():
+    raise NotImplementedError
