@@ -76,9 +76,11 @@ def test_rel_dist():
         ['S', 'A', 'B', 'C', 'T', 'X', 'Y', 'G']  # 7, 4
     ]
 
-    assert metrics.rdist(start, target, paths, metrics.get_min) == 0.8
-    assert metrics.rdist(start, target, paths, metrics.get_max) == 0.625
-    assert metrics.rdist(start, target, paths, metrics.avg) == 0.675
+    mapping = Mapping(start, target, paths)
+
+    assert metrics.rdist(mapping, metrics.get_min) == 2/3
+    assert metrics.rdist(mapping, metrics.get_max) == 5/9
+    assert metrics.rdist(mapping, metrics.avg) == (13/3) / (23/3)
 
 
 def test_granularity():

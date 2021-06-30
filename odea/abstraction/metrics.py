@@ -43,7 +43,7 @@ def dist(source: Concept, target: Concept, paths: list, agg) -> int:
     return agg(dist)
 
 
-def rdist_new(mapping: Mapping, connector: SparQLConnector, leaf_paths: list, agg):
+def rdist(mapping: Mapping, agg):
 
     Gamma = []
 
@@ -52,21 +52,14 @@ def rdist_new(mapping: Mapping, connector: SparQLConnector, leaf_paths: list, ag
         if prefix not in Gamma:
             Gamma.append(len(prefix) - 1)
 
-    # leaf_paths = abshelper.get_leaf_paths(connector)
-
-    Gamma_p = []
-    for path in leaf_paths:
-        if mapping.target.label in path:
-            Gamma_p.append(path)
-
-    Gamma_p = agg(list(map(lambda p: len(p) - 1, Gamma_p)))
+    Gamma_p = agg(list(map(lambda p: len(p) - 1, mapping.paths)))
 
     l = agg(Gamma)
 
     return l / (Gamma_p + 1)
 
 
-def rdist(source: Concept, target: Concept, paths: list, agg) -> float:
+def rdistOLD(source: Concept, target: Concept, paths: list, agg) -> float:
 
     dists = []
 
