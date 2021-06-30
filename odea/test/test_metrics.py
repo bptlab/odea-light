@@ -1,3 +1,7 @@
+import os
+from dotenv import load_dotenv
+
+
 from odea.abstraction import metrics
 from odea.abstraction.Concept import Concept
 from odea.abstraction.Mapping import Mapping
@@ -5,9 +9,30 @@ from odea.abstraction.Mapping import Mapping
 from odea.io.sparql import SparQLConnector
 
 
-endpoint = 'http://localhost:3030/ds/query'
-prefix = 'http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#'
-connector = SparQLConnector(endpoint, prefix)
+load_dotenv()
+
+SPARQL_ENDPOINT = os.getenv('SPARQL_ENDPOINT')
+SPARQL_PREFIX = os.getenv('SPARQL_PREFIX')
+
+connector = SparQLConnector(SPARQL_ENDPOINT, SPARQL_PREFIX)
+
+
+def test_get_min():
+    l = [1, 1, 2, 3, 4]
+
+    assert metrics.get_min(l) == 1.0
+
+
+def test_get_max():
+    l = [1, 2, 3, 4, 4]
+
+    assert metrics.get_max(l) == 4.0
+
+
+def test_avg():
+    l = [1, 2, 3, 4]
+
+    assert metrics.avg(l) == 2.5
 
 
 def test_dist():

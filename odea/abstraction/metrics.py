@@ -1,18 +1,30 @@
 from functools import reduce
+
+from ..io.sparql import SparQLConnector
 from . Concept import Concept
+from . Mapping import Mapping
 
 # ==========================
 
 
 def get_min(items: list):
+    if len(items) == 0:
+        return 0
+
     return float(min(items))
 
 
 def get_max(items: list):
+    if len(items) == 0:
+        return 0
+
     return float(max(items))
 
 
 def avg(items: list):
+    if len(items) == 0:
+        return 0
+
     return sum(items) / len(items)
 
 # ==========================
@@ -31,6 +43,29 @@ def dist(source: Concept, target: Concept, paths: list, agg) -> int:
     return agg(dist)
 
 
+def rdist_new(mapping: Mapping, connector: SparQLConnector, leaf_paths: list, agg):
+
+    Gamma = []
+
+    for path in mapping.paths:
+        prefix = get_prefix(mapping.target, path)
+        if prefix not in Gamma:
+            Gamma.append(len(prefix) - 1)
+
+    # leaf_paths = abshelper.get_leaf_paths(connector)
+
+    Gamma_p = []
+    for path in leaf_paths:
+        if mapping.target.label in path:
+            Gamma_p.append(path)
+
+    Gamma_p = agg(list(map(lambda p: len(p) - 1, Gamma_p)))
+
+    l = agg(Gamma)
+
+    return l / (Gamma_p + 1)
+
+
 def rdist(source: Concept, target: Concept, paths: list, agg) -> float:
 
     dists = []
@@ -41,13 +76,18 @@ def rdist(source: Concept, target: Concept, paths: list, agg) -> float:
     for path in paths:
         prefix = get_prefix(target, path)
         if prefix not in Gamma:
-            Gamma.append(prefix)
+            Gamma.append(len(prefix) - 1)
 
-    for path in Gamma:
-        l = len(path) - 1
-        dists.append(l / Gamma_p)
+    # for path in Gamma:
+    #    l = len(path) - 1
+    #    dists.append(l / Gamma_p)
 
-    return agg(dists)
+    if source.label == 'Allocation_Task' and (target.label == 'Administrative_Task' or target.label == 'Communication_Task'):
+        print('Gamma p', Gamma_p, target.label)
+
+    l = agg(Gamma)
+
+    return l / (Gamma_p + 1)  # agg(dists)
 
 
 def granularity(paths_from_concept: list, paths_from_leaves: list, agg):
@@ -68,7 +108,13 @@ def granularity(paths_from_concept: list, paths_from_leaves: list, agg):
     Gamma = list(map(lambda path: len(path) - 1, paths_from_concept))
     Gamma_p = list(map(lambda path: len(path) - 1, paths_from_leaves))
 
+    # print(agg(Gamma))
+    # print(Gamma_p)
+    # print(agg(Gamma_p))
+
     gran = (agg(Gamma) / (agg(Gamma_p) + 1))
+
+    print(agg(Gamma), '/', agg(Gamma_p), '+ 1')
 
     return round(gran, 3)
 
