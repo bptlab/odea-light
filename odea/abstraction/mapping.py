@@ -1,4 +1,4 @@
-from . Concept import Concept
+from . concept import Concept
 
 
 class Mapping():
@@ -19,13 +19,3 @@ class Mapping():
             details.append('\t- {:<15s}: {:n}'.format(k, v))
 
         return '\n'.join(details)
-
-    def evaluate(self, key, metric, **kwargs):
-        """Evaluate a given metric for this Mapping
-
-        Args:
-            key (str): descriptive name of the metric
-            metric (str): name of the metric function
-        """
-        self.evaluation[key] = metric(
-            self.source, self.target, self.paths, **kwargs)

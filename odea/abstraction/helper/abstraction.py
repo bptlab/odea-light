@@ -1,15 +1,15 @@
-from ..io.sparql import SparQLConnector
+from odea.io.sparql import SparQLConnector
 
-from . Concept import Concept
-from . Mapping import Mapping
-from . import metrics as m
+from .. concept import Concept
+from .. mapping import Mapping
+from .. import metrics as m
+from . import metrics as m_helper
 
 from typing import List
 
 
 def find_abstraction_candidates(concepts: List[Concept],
-                                connector: SparQLConnector,
-                                metrics: dict) -> List[Mapping]:
+                                connector: SparQLConnector) -> List[Mapping]:
     """Find abstraction candidates (mappings) for all concepts.
 
     Args:
@@ -24,10 +24,8 @@ def find_abstraction_candidates(concepts: List[Concept],
 
     for ll_con in concepts:
         for hl_con in ll_con.supertypes:
-            paths = connector.find_path_to(ll_con, hl_con)
+            paths = find_path_to(ll_con, hl_con, connector)
             mapping = Mapping(ll_con, hl_con, paths)
-            [mapping.evaluate(metric['key'], metric['fun'], **metric['param'])
-                for metric in metrics]
             mappings.append(mapping)
 
     return mappings
@@ -46,14 +44,14 @@ def get_leaf_paths(connector: SparQLConnector, top=Concept('Task')) -> List[list
     leaves = connector.get_leaves()
     leaf_paths = []
     for leaf in leaves:
-        leaf_paths += (connector.find_path_to(Concept(leaf), top))
+        leaf_paths += (find_path_to(Concept(leaf), top, connector))
 
     return leaf_paths
 
 
 def select_mapping(mappings: List[Mapping],
                    connector: SparQLConnector, leaf_paths: list,
-                   top=Concept('Task'), gran=0, agg=m.avg) -> Mapping:
+                   top=Concept('Task'), gran=0, agg=m_helper.avg) -> Mapping:
     """Select mapping from abstraction candidates with the lowest granularity of
     the target/high-level concept.
 
@@ -71,7 +69,7 @@ def select_mapping(mappings: List[Mapping],
     """
     def select(source: Concept, mappings: List[Mapping],
                connector: SparQLConnector, leaf_paths: list, gran: int,
-               top=Concept('Task'), agg=m.avg) -> Mapping:
+               top=Concept('Task'), agg=m_helper.avg) -> Mapping:
 
         selected_mapping: Mapping = None
 
@@ -81,7 +79,7 @@ def select_mapping(mappings: List[Mapping],
         )
 
         for candidate in candidates:
-            paths = connector.find_path_to(candidate.target, top)
+            paths = find_path_to(candidate.target, top, connector)
             candidate.target.granularity = m.granularity(
                 paths, leaf_paths, agg)
 
@@ -127,3 +125,54 @@ def filter_abstraction_candidates(mappings: List[Mapping],
     f2 = list(filter(lambda m: m.target.supp > supp, f1))
 
     return f2
+
+
+def find_path_to(source: Concept, target: Concept, connector: SparQLConnector):
+    path = []
+    paths = find_all_paths(source, connector, path)
+    paths = flat_path(paths, [])
+
+    p2 = []
+    for p in paths:
+        p2.append([source.label] + p)
+
+    paths = p2
+
+    paths = list(filter(lambda path: target.label in path, paths))
+
+    return paths
+
+
+def find_all_paths(source: Concept, connector: SparQLConnector, path: list) -> list:
+
+    if source.parents != []:
+        parents = source.parents
+    else:
+        source.set_parents(connector.get_parents(source))
+        parents = source.parents
+
+    if len(parents) > 0:
+        for parent in parents:
+            path.append([parent.label])
+            find_all_paths(parent, connector, path[-1])
+    else:
+        pass
+
+    return path
+
+
+def flat_path(path: list, new_path: list) -> list:
+
+    pre = []
+    nested = False
+    for e in path:
+        if isinstance(e, list):
+            nested = True
+            ee = pre + e
+            new_path = flat_path(ee, new_path)
+        else:
+            pre.append(e)
+
+    if not nested:
+        new_path.append(pre)
+    return new_path

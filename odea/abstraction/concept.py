@@ -1,5 +1,3 @@
-from . import Concept
-
 from typing import List
 
 
@@ -35,7 +33,7 @@ class Concept():
         children = list(filter(lambda x: x != self.label, children))
         self.children = [Concept(child) for child in children]
 
-    def has_supertype(self, concept: Concept):
+    def has_supertype(self, concept: 'Concept'):
         for c in self.supertypes:
             if c.label == concept.label:
                 return True

@@ -3,8 +3,12 @@ from dotenv import load_dotenv
 
 
 from odea.abstraction import metrics
-from odea.abstraction.Concept import Concept
-from odea.abstraction.Mapping import Mapping
+from odea.abstraction.helper import metrics as m_helper
+
+from odea.abstraction.helper import abstraction as abs_helper
+
+from odea.abstraction.concept import Concept
+from odea.abstraction.mapping import Mapping
 
 from odea.io.sparql import SparQLConnector
 
@@ -20,19 +24,19 @@ connector = SparQLConnector(SPARQL_ENDPOINT, SPARQL_PREFIX)
 def test_get_min():
     l = [1, 1, 2, 3, 4]
 
-    assert metrics.get_min(l) == 1.0
+    assert m_helper.get_min(l) == 1.0
 
 
 def test_get_max():
     l = [1, 2, 3, 4, 4]
 
-    assert metrics.get_max(l) == 4.0
+    assert m_helper.get_max(l) == 4.0
 
 
 def test_avg():
     l = [1, 2, 3, 4]
 
-    assert metrics.avg(l) == 2.5
+    assert m_helper.avg(l) == 2.5
 
 
 def test_dist():
@@ -45,9 +49,11 @@ def test_dist():
         ['S', 'A', 'B', 'T']
     ]
 
-    assert metrics.dist(start, target, paths, metrics.get_min) == 3
-    assert metrics.dist(start, target, paths, metrics.get_max) == 5
-    assert metrics.dist(start, target, paths, metrics.avg) == 4
+    mapping = Mapping(start, target, paths)
+
+    assert metrics.dist(mapping, m_helper.get_min) == 3
+    assert metrics.dist(mapping, m_helper.get_max) == 5
+    assert metrics.dist(mapping, m_helper.avg) == 4
 
 
 def test_get_prefix():
@@ -59,10 +65,10 @@ def test_get_prefix():
         ['S', 'A', 'B', 'C', 'T', 'X', 'Y', 'G']
     ]
 
-    assert metrics.get_prefix(target, paths[0]) == ['S', 'A', 'B', 'C', 'T']
-    assert metrics.get_prefix(target, paths[1]) == [
+    assert m_helper.get_prefix(target, paths[0]) == ['S', 'A', 'B', 'C', 'T']
+    assert m_helper.get_prefix(target, paths[1]) == [
         'S', 'A', 'B', 'C', 'D', 'T']
-    assert metrics.get_prefix(target, paths[2]) == ['S', 'A', 'B', 'C', 'T']
+    assert m_helper.get_prefix(target, paths[2]) == ['S', 'A', 'B', 'C', 'T']
 
 
 def test_rel_dist():
@@ -78,9 +84,9 @@ def test_rel_dist():
 
     mapping = Mapping(start, target, paths)
 
-    assert metrics.rdist(mapping, metrics.get_min) == 2/3
-    assert metrics.rdist(mapping, metrics.get_max) == 5/9
-    assert metrics.rdist(mapping, metrics.avg) == (13/3) / (23/3)
+    assert metrics.rdist(mapping, m_helper.get_min) == 2/3
+    assert metrics.rdist(mapping, m_helper.get_max) == 5/9
+    assert metrics.rdist(mapping, m_helper.avg) == (13/3) / (23/3)
 
 
 def test_granularity():
@@ -98,11 +104,11 @@ def test_granularity():
     ]
 
     assert metrics.granularity(
-        concept_top, leaves_top, metrics.get_min) == round(5/7, 3)
+        concept_top, leaves_top, m_helper.get_min) == round(5/7, 3)
     assert metrics.granularity(
-        concept_top, leaves_top, metrics.get_max) == round(8/11, 3)
+        concept_top, leaves_top, m_helper.get_max) == round(8/11, 3)
     assert metrics.granularity(
-        concept_top, leaves_top, metrics.avg) == round(10/13, 3)
+        concept_top, leaves_top, m_helper.avg) == round(10/13, 3)
 
 
 def test_support():

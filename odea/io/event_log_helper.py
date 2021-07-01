@@ -7,7 +7,8 @@ from copy import deepcopy
 
 from typing import List
 
-from .. abstraction import Concept, Mapping
+from .. abstraction.concept import Concept
+from .. abstraction.mapping import Mapping
 
 
 def concepts_from_log(log_file: str, mapping_file: str) -> List[Concept]:

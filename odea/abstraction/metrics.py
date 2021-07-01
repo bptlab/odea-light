@@ -1,44 +1,16 @@
 from functools import reduce
 
-from ..io.sparql import SparQLConnector
-from . Concept import Concept
-from . Mapping import Mapping
-
-# ==========================
-
-
-def get_min(items: list):
-    if len(items) == 0:
-        return 0
-
-    return float(min(items))
+from odea.io.sparql import SparQLConnector
+from . concept import Concept
+from . mapping import Mapping
+from . helper import metrics as m_helper
 
 
-def get_max(items: list):
-    if len(items) == 0:
-        return 0
-
-    return float(max(items))
-
-
-def avg(items: list):
-    if len(items) == 0:
-        return 0
-
-    return sum(items) / len(items)
-
-# ==========================
-
-
-def get_prefix(target: Concept, path: list):
-    return path[:path.index(target.label) + 1]
-
-
-def dist(source: Concept, target: Concept, paths: list, agg) -> int:
+def dist(mapping: Mapping, agg) -> int:
     dist = []
-    for path in paths:
-        dist.append(path.index(target.label) -
-                    path.index(source.label))
+    for path in mapping.paths:
+        dist.append(path.index(mapping.target.label) -
+                    path.index(mapping.source.label))
 
     return agg(dist)
 
@@ -48,7 +20,7 @@ def rdist(mapping: Mapping, agg):
     Gamma = []
 
     for path in mapping.paths:
-        prefix = get_prefix(mapping.target, path)
+        prefix = m_helper.get_prefix(mapping.target, path)
         if prefix not in Gamma:
             Gamma.append(len(prefix) - 1)
 
@@ -67,7 +39,7 @@ def rdistOLD(source: Concept, target: Concept, paths: list, agg) -> float:
     Gamma_p = agg(list(map(lambda p: len(p) - 1, paths)))  # dist_to_top
 
     for path in paths:
-        prefix = get_prefix(target, path)
+        prefix = m_helper.get_prefix(target, path)
         if prefix not in Gamma:
             Gamma.append(len(prefix) - 1)
 

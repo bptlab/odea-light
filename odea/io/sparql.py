@@ -1,12 +1,12 @@
 from SPARQLWrapper import SPARQLWrapper, JSON
-from .. abstraction import Concept
+from .. abstraction.concept import Concept
 
 from typing import List
 
 
 class SparQLConnector():
 
-    def __init__(self, url, prefix):
+    def __init__(self, url: str, prefix: str):
 
         self.endpoint = SPARQLWrapper(url)
         self.prefix = prefix
@@ -30,7 +30,6 @@ class SparQLConnector():
 
         for result in results["results"]["bindings"]:
             concepts.append(result["class"]["value"][len(self.prefix):])
-
         return concepts
 
     def get_subtypes(self, c: Concept) -> List[str]:

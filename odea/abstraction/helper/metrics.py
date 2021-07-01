@@ -1,6 +1,6 @@
 from typing import List
-from . Concept import Concept
-from . Mapping import Mapping
+from .. concept import Concept
+from .. mapping import Mapping
 
 
 def get_abstraction_goals(mappings: List[Mapping]) -> List[str]:
@@ -78,3 +78,28 @@ def get_not_abstractable_concepts(ll_concepts: List[Concept], mappings: List[Map
     nalc = list(set(ll_concepts) - set(alc))
 
     return nalc
+
+
+def get_min(items: List[int]):
+    if len(items) == 0:
+        return 0
+
+    return float(min(items))
+
+
+def get_max(items: List[int]):
+    if len(items) == 0:
+        return 0
+
+    return float(max(items))
+
+
+def avg(items: List[int]):
+    if len(items) == 0:
+        return 0
+
+    return sum(items) / len(items)
+
+
+def get_prefix(target: Concept, path: list):
+    return path[:path.index(target.label) + 1]
