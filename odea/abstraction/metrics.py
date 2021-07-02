@@ -31,30 +31,6 @@ def rdist(mapping: Mapping, agg):
     return l / (Gamma_p + 1)
 
 
-def rdistOLD(source: Concept, target: Concept, paths: list, agg) -> float:
-
-    dists = []
-
-    Gamma = []
-    Gamma_p = agg(list(map(lambda p: len(p) - 1, paths)))  # dist_to_top
-
-    for path in paths:
-        prefix = m_helper.get_prefix(target, path)
-        if prefix not in Gamma:
-            Gamma.append(len(prefix) - 1)
-
-    # for path in Gamma:
-    #    l = len(path) - 1
-    #    dists.append(l / Gamma_p)
-
-    if source.label == 'Allocation_Task' and (target.label == 'Administrative_Task' or target.label == 'Communication_Task'):
-        print('Gamma p', Gamma_p, target.label)
-
-    l = agg(Gamma)
-
-    return l / (Gamma_p + 1)  # agg(dists)
-
-
 def granularity(paths_from_concept: list, paths_from_leaves: list, agg):
     """
 
@@ -73,13 +49,7 @@ def granularity(paths_from_concept: list, paths_from_leaves: list, agg):
     Gamma = list(map(lambda path: len(path) - 1, paths_from_concept))
     Gamma_p = list(map(lambda path: len(path) - 1, paths_from_leaves))
 
-    # print(agg(Gamma))
-    # print(Gamma_p)
-    # print(agg(Gamma_p))
-
     gran = (agg(Gamma) / (agg(Gamma_p) + 1))
-
-    print(agg(Gamma), '/', agg(Gamma_p), '+ 1')
 
     return round(gran, 3)
 

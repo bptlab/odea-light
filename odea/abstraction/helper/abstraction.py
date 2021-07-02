@@ -118,11 +118,12 @@ def filter_abstraction_candidates(mappings: List[Mapping],
         List[Mapping]: filtered abstraction candidates
     """
 
-    f1 = list(
-        filter(lambda m: m.evaluation['abs. distance'] <= dist, mappings)
-    )
+    # 1, 2
+    f1 = list(filter(lambda m: m.evaluation['dist'] <= dist, mappings))
+    # f1 = list(filter(lambda m: m.evaluation['rdist'] <= dist, mappings)) # 3
 
-    f2 = list(filter(lambda m: m.target.supp > supp, f1))
+    f2 = list(filter(lambda m: m.target.supp > supp, f1))  # 1
+    # f2 = list(filter(lambda m: m.target.supp_freq > supp, f1))  # 2
 
     return f2
 
