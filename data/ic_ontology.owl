@@ -1,0 +1,834 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/simon/ontologies/2021/5/insurance-company#"
+     xml:base="http://www.semanticweb.org/simon/ontologies/2021/5/insurance-company"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:insurance-company="http://www.semanticweb.org/simon/ontologies/2021/5/insurance-company#"
+     xmlns:insurance-company1="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#executes -->
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#executes">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Task"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/simon/ontologies/2021/5/insurance-company#AssessmentTask"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/simon/ontologies/2021/5/insurance-company#FinalAssessment"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/simon/ontologies/2021/5/insurance-company#InternalReview"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#does_not_execute -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#does_not_execute">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#executes"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Clerk"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#External_Review"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#executes -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#executes">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Clerk"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#has_role -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#has_role">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Employee"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Role"/>
+        <rdfs:comment>
+            <rdf:Description/>
+        </rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#requests -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#requests">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Manager"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#External_Review"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#settles -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#settles">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Department"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Insurance"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#works_in -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#works_in">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Employee"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Department"/>
+        <rdfs:comment xml:lang="en">an employee works in a department</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Accept_Claim -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Accept_Claim">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Decision_Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Account_Verification -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Account_Verification">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Accounting_Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Accounting -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Accounting">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Department"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Accounting_Task -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Accounting_Task">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Add_Customer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Add_Customer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Customer_Management_Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Additional_Details_Request -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Additional_Details_Request">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Information_Request"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Administration -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Administration">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Department"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Administrative_Task -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Administrative_Task">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Allocation_Task -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Allocation_Task">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Administrative_Task"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Communication_Task"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Internal_Communication"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Archive -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Archive">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Administrative_Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Assessment_Task -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Assessment_Task">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Processing_Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Automobile_Liability_Insurance -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Automobile_Liability_Insurance">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Liability_Insurance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Book_Expense -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Book_Expense">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Booking"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Book_Income -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Book_Income">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Booking"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Booking -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Booking">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Accounting_Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Building_Insurance -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Building_Insurance">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Property_Insurance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Claim_Settlement_Department -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Claim_Settlement_Department">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Department"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Classification_Task -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Classification_Task">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Allocation_Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Clerk -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Clerk">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Role"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Manager"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Communication_Task -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Communication_Task">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Administrative_Task"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Processing_Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Completeness_Check -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Completeness_Check">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Structural_Assessment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Copy -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Copy">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Archive"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Document_Management"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Customer_Information_Request -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Customer_Information_Request">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Customer_Management_Task"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Information_Request"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Customer_Management_Task -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Customer_Management_Task">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Administrative_Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Decision_Task -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Decision_Task">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Processing_Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Deferred_Decision -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Deferred_Decision">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Administrative_Task"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Decision_Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Department -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Department"/>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Digitalization_Task -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Digitalization_Task">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Document_Management"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Disability_Insurance -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Disability_Insurance">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Life_Insurance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Document_Management -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Document_Management">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Administrative_Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Electronic_Case_File_Creation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Electronic_Case_File_Creation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Digitalization_Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Employee -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Employee"/>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Extended_Review -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Extended_Review">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Factual_Assessment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#External_Communication -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#External_Communication">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Communication_Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#External_Review -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#External_Review">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Extended_Review"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#External_Communication"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Factual_Assessment -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Factual_Assessment">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Assessment_Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Final_Assessment -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Final_Assessment">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Personal_Review"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Grant_Transaction -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Grant_Transaction">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Accounting_Task"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Decision_Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Health_Department -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Health_Department">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Claim_Settlement_Department"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Health_Insurance -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Health_Insurance">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Insurance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Household_Insurance -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Household_Insurance">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Property_Insurance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Human_Resource -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Human_Resource">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Department"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Information_Acquisition_Task -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Information_Acquisition_Task">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Information_Processessing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Information_Processessing -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Information_Processessing">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#External_Communication"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Information_Request -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Information_Request">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Decision_Task"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#External_Communication"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Initial_Assessment -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Initial_Assessment">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Personal_Review"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Insurance -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Insurance"/>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Insurance_Details_Request -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Insurance_Details_Request">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Third_Party_Information_Request"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Internal_Communication -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Internal_Communication">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Communication_Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Internal_Review -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Internal_Review">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Extended_Review"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Internal_Communication"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Liability_Insurance -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Liability_Insurance">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Insurance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Life_Insurance -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Life_Insurance">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Insurance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Life_TermInsurance -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Life_TermInsurance">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Life_Insurance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Manager -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Manager">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Nursing_Insurance -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Nursing_Insurance">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Health_Insurance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Pension_Insurance -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Pension_Insurance">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Life_Insurance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#PersonalLiabilityInsurance -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#PersonalLiabilityInsurance">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Liability_Insurance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Personal_Review -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Personal_Review">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Factual_Assessment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Print -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Print">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Archive"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Document_Management"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Private_Health_Insurance -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Private_Health_Insurance">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Health_Insurance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Processing_Task -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Processing_Task">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Property_Department -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Property_Department">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Claim_Settlement_Department"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Property_Insurance -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Property_Insurance">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Insurance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#PublicLiabilityInsurance -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#PublicLiabilityInsurance">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Liability_Insurance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Public_Health_Insurance -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Public_Health_Insurance">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Health_Insurance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Receive_Email -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Receive_Email">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Information_Acquisition_Task"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Internal_Communication"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Receive_Fax -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Receive_Fax">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Information_Acquisition_Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Receive_Letter -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Receive_Letter">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Information_Acquisition_Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Receive_Websubmission -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Receive_Websubmission">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Information_Acquisition_Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Reject_Claim -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Reject_Claim">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Decision_Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Report_Creation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Report_Creation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Document_Management"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Role -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Role"/>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Scan -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Scan">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Digitalization_Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Send_Email -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Send_Email">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Information_Processessing"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Internal_Communication"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Send_Letter -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Send_Letter">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Information_Processessing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Structural_Assessment -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Structural_Assessment">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Assessment_Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Task -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Task"/>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Third_Party_Information_Request -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Third_Party_Information_Request">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Information_Request"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Travel_Cancelation_Insurance -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Travel_Cancelation_Insurance">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Liability_Insurance"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Travel_Insurance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Travel_Health_Insurance -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Travel_Health_Insurance">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Health_Insurance"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Travel_Insurance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Travel_Insurance -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Travel_Insurance">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Insurance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Update_Address -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Update_Address">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Customer_Management_Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Update_Name -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Update_Name">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Customer_Management_Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Validate_Customer_Details -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Validate_Customer_Details">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Customer_Management_Task"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#DeferredDecission -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#DeferredDecission">
+        <rdf:type rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Administrative_Task"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#Decision_Task"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#executes">
+        <rdfs:comment xml:lang="en">an clerk executes a task</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#topObjectProperty">
+        <insurance-company1:executes></insurance-company1:executes>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
