@@ -21,7 +21,7 @@ As the goal of this project is to support semantically meaningful event abstract
 ```bash 
 ./fuseki-server --update --mem /ds
 ```
-3. Upload the [`.owl`](https://github.com/bptlab/odea_lite/-/tree/master/data/ic_ontology.owl) file to the endpoint
+3. Upload the [`.owl`](https://github.com/bptlab/odea-light/blob/master/data/ic_ontology.owl) file to the endpoint
 
 ### Configuration
 This package uses a central `.evn` file to organize basic configurations. Please add a new `.env` file in the `odea` directory that provides the following two things:
