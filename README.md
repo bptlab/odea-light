@@ -24,7 +24,7 @@ As the goal of this project is to support semantically meaningful event abstract
 3. Upload the [`.owl`](https://github.com/bptlab/odea-light/blob/master/data/ic_ontology.owl) file to the endpoint
 
 ### Configuration
-This package uses a central `.evn` file to organize basic configurations. Please add a new `.env` file in the `odea` directory that provides the following two things:
+This package uses a central `.env` file to organize basic configurations. Please add a new `.env` file in the `odea` directory that provides the following two things:
 1. The URL to your Fuseki instance and its endpoint, e.g.:
     `SPARQL_ENDPOINT=SPARQL_ENDPOINT=http://localhost:3030/ds/query`
 2. Specify the prefix of the running example: 
