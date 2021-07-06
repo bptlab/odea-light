@@ -30,7 +30,7 @@ This package uses a central `.env` file to organize basic configurations. Please
 2. Specify the prefix of the running example: 
    `SPARQL_PREFIX=http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#`
 
-## Example
+## Examples
 To showcase the approach the repository contains several demo scripts and one Jupyter Notebook. The later one serves to interactively explore the application of the metrics to define constraints on the abstraction space.
 
 > Please follow the instructions above to install the required package first.
@@ -45,3 +45,7 @@ To showcase the approach the repository contains several demo scripts and one Ju
 | **Expressiveness** | [demo_expressiveness.py](demo/scripts/demo_expressiveness.py) | showcases the computation of the expressiveness of concepts                                              |
 
 ### Jupyter Notebook
+
+To experiment with different configurations to define the abstraction space the [Demo Notebook](demo/Constraint%20Demo.ipynb) can be used.
+
+![example process models, before and after abstraction](demo/example_process_models.png)
