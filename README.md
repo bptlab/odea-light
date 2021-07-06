@@ -31,6 +31,17 @@ This package uses a central `.env` file to organize basic configurations. Please
    `SPARQL_PREFIX=http://www.semanticweb.org/bpt/ontologies/2021/5/insurance-company#`
 
 ## Example
+To showcase the approach the repository contains several demo scripts and one Jupyter Notebook. The later one serves to interactively explore the application of the metrics to define constraints on the abstraction space.
 
-...
+> Please follow the instructions above to install the required package first.
 
+### Scripts
+
+| Metric             | Script                                                        | Description                                                                                              |
+| ------------------ | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| **Distance**       | [demo_distance.py](demo/scripts/demo_distance.py)             | demonstrate the computation of the two distance metrics for mapping of low-level and high-level concepts |
+| **Granularity**    | [demo_granularity.py](demo/scripts/demo_granularity.py)       | showcases the computation of the granularity of concepts                                                 |
+| **Support**        | [demo_support.py](demo/scripts/demo_support.py)               | example to compute the two support metrics for mappings of low-level and high-level concepts             |
+| **Expressiveness** | [demo_expressiveness.py](demo/scripts/demo_expressiveness.py) | showcases the computation of the expressiveness of concepts                                              |
+
+### Jupyter Notebook
