@@ -1,3 +1,8 @@
+"""
+This script showcases the computation of the two distance metrics for mapping
+of low-level and high-level concepts.
+"""
+
 from odea.abstraction import mapping
 from odea.abstraction.mapping import Mapping
 from typing import List
