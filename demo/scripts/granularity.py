@@ -1,3 +1,7 @@
+"""
+This script showcases the computation of the granularity of concepts.
+"""
+
 from odea.abstraction.concept import Concept
 from odea.abstraction import metrics as m
 from odea.abstraction.helper import metrics as m_helper
