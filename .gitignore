@@ -1,4 +1,6 @@
 *.pdf
+*.svg
+*.drawio
 
 src/test-output/
 
