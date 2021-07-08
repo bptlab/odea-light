@@ -6,7 +6,7 @@ requirements = [
     'pandas>=1.0.4',
     'python-dotenv>=0.18.0',
     'pm4py>=2.2.8',
-    'matplotlib==3.2.1',
+    'matplotlib>=3.2.1',
     'sparqlwrapper==1.8.5'
 ]
 
